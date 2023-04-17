@@ -1,11 +1,11 @@
-import mongoose, { Model, Schema } from 'mongoose';
+import mongoose, { Model, Schema } from "mongoose";
 
 export interface IProfile {
   phone: string;
   address: string;
   user: {
     type: mongoose.Types.ObjectId;
-    ref: 'User';
+    ref: "User";
   };
 }
 
@@ -14,7 +14,7 @@ const ProfileSchema: Schema<IProfile> = new mongoose.Schema({
   address: String,
   user: {
     type: mongoose.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
   },
 });
 
@@ -27,4 +27,4 @@ ProfileSchema.methods.toJSON = function () {
 };
 
 export default (mongoose.models.Profile ||
-  mongoose.model('Profile', ProfileSchema)) as typeof Model;
+  mongoose.model("Profile", ProfileSchema)) as typeof Model;

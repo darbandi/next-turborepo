@@ -1,17 +1,17 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import Profile from '../models/Profile';
+import { NextApiRequest, NextApiResponse } from "next";
+import Profile from "../models/Profile";
 
 // Get all profiles
 export const getAllProfiles = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const {
       page = 1,
       perPage = 10,
-      profileName = '',
-      email = '',
+      profileName = "",
+      email = "",
     } = req.query || {};
     const filters = {
       ...(profileName ? { profileName: { $regex: profileName } } : {}),
@@ -38,7 +38,7 @@ export const getAllProfiles = async (
 // Create a new profile
 export const createProfile = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const profile = await Profile.create(req.body);
@@ -51,10 +51,10 @@ export const createProfile = async (
 // Get a single profile by ID
 export const getProfileById = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
-    const profile = await Profile.findById(req.query.id).populate('user');
+    const profile = await Profile.findById(req.query.id).populate("user");
     res.status(200).json({ success: true, data: profile.toJSON() });
   } catch (error) {
     res.status(400).json({ success: false });
@@ -64,7 +64,7 @@ export const getProfileById = async (
 // Update a profile
 export const updateProfile = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const profile = await Profile.findByIdAndUpdate(req.query.id, req.body, {
@@ -83,7 +83,7 @@ export const updateProfile = async (
 // Delete a profile
 export const deleteProfile = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const deletedProfile = await Profile.findByIdAndRemove(req.query.id);

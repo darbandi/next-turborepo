@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
+import React from "react";
+import { makeStyles } from "@mui/styles";
 import {
   AppBar,
   Toolbar,
@@ -9,34 +9,34 @@ import {
   Box,
   Theme,
   Button,
-} from '@mui/material';
+} from "@mui/material";
 
-import Link from 'next/link';
+import Link from "next/link";
 import {
   Nightlight,
   LightMode,
   GTranslate,
   Translate,
-} from '@mui/icons-material';
-import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
-import { useAppStore } from '../../store';
+} from "@mui/icons-material";
+import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
+import { useAppStore } from "../../store";
 
 const useStyles = makeStyles((theme: Theme) => ({
   navLink: {
-    textDecoration: 'none',
-    color: 'inherit',
-    margin: '0 1rem',
-    '&:hover': {
-      color: '#fff',
+    textDecoration: "none",
+    color: "inherit",
+    margin: "0 1rem",
+    "&:hover": {
+      color: "#fff",
     },
   },
   separator: {
-    height: '24px',
+    height: "24px",
     borderRight: `1px solid`,
     borderRightColor: theme?.palette?.secondary?.main,
-    marginRight: '16px',
-    marginLeft: '16px',
+    marginRight: "16px",
+    marginLeft: "16px",
   },
 }));
 
@@ -54,7 +54,7 @@ export const Navbar = ({ children }: NavbarProps) => {
 
   const handleChangeLang = () => {
     push({ pathname, query }, asPath, {
-      locale: nextLocale === 'fa' ? 'en' : 'fa',
+      locale: nextLocale === "fa" ? "en" : "fa",
     });
   };
 
@@ -66,32 +66,32 @@ export const Navbar = ({ children }: NavbarProps) => {
   const navItems = [
     {
       id: 1,
-      title: 'Home',
+      title: "Home",
       link: `/home`,
     },
     {
       id: 2,
-      title: 'Main',
+      title: "Main",
       link: `/`,
     },
   ];
 
   return (
-    <AppBar position='static'>
+    <AppBar position="static">
       <Toolbar>
-        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-          {session ? `Hi, ${session?.user?.name}` : 'Welcome to commerce'}
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {session ? `Hi, ${session?.user?.name}` : "Welcome to commerce"}
         </Typography>
 
         {navItems?.map((nav) => (
           <Typography
-            variant='button'
-            color='secondary'
+            variant="button"
+            color="secondary"
             key={nav.id}
             sx={{
-              textDecoration: 'none',
-              color: 'grey.500',
-              '&:hover': { color: 'grey.100' },
+              textDecoration: "none",
+              color: "grey.500",
+              "&:hover": { color: "grey.100" },
               px: 4,
             }}
           >
@@ -100,14 +100,14 @@ export const Navbar = ({ children }: NavbarProps) => {
         ))}
 
         <Box className={classes.separator}></Box>
-        {status === 'authenticated' ? (
+        {status === "authenticated" ? (
           <Button
             onClick={handleSignOut}
-            variant='text'
-            color='secondary'
+            variant="text"
+            color="secondary"
             sx={{
-              color: 'grey.500',
-              '&:hover': { color: 'grey.100' },
+              color: "grey.500",
+              "&:hover": { color: "grey.100" },
               px: 4,
             }}
           >
@@ -115,25 +115,25 @@ export const Navbar = ({ children }: NavbarProps) => {
           </Button>
         ) : (
           <Typography
-            variant='button'
-            color='secondary'
+            variant="button"
+            color="secondary"
             sx={{
-              textDecoration: 'none',
-              color: 'grey.500',
-              '&:hover': { color: 'grey.100' },
+              textDecoration: "none",
+              color: "grey.500",
+              "&:hover": { color: "grey.100" },
               px: 4,
             }}
           >
-            <Link href='/auth/login'>login</Link>
+            <Link href="/auth/login">login</Link>
           </Typography>
         )}
         <Box className={classes.separator}></Box>
-        <IconButton onClick={handleChangeLang} color='inherit'>
-          {nextLocale === 'fa' ? 'en' : 'fa'}
+        <IconButton onClick={handleChangeLang} color="inherit">
+          {nextLocale === "fa" ? "en" : "fa"}
         </IconButton>
 
-        <IconButton onClick={changeTheme} color='inherit'>
-          {themeMode === 'dark' ? (
+        <IconButton onClick={changeTheme} color="inherit">
+          {themeMode === "dark" ? (
             <SvgIcon component={LightMode} />
           ) : (
             <SvgIcon component={Nightlight} />

@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic';
-import { getServerSidePropsWithTranslation } from '../lib/getServerSidePropsWithTranslation';
-const MainSSR = dynamic(() => import('../containers/main/MainSSR'), {
+import dynamic from "next/dynamic";
+import { getServerSidePropsWithTranslation } from "../lib/getServerSidePropsWithTranslation";
+const MainSSR = dynamic(() => import("../containers/main/MainSSR"), {
   ssr: true,
 });
-const MainNoSSR = dynamic(() => import('../containers/main/MainNoSSR'), {
+const MainNoSSR = dynamic(() => import("../containers/main/MainNoSSR"), {
   ssr: false,
 });
 

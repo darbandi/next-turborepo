@@ -1,15 +1,15 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
-import { UiCoreProvider } from 'ui';
-import { SessionProvider, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { ReactElement } from 'react';
-import dynamic from 'next/dynamic';
-import { useAppStore } from '../store';
-import { appWithTranslation } from 'next-i18next';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import "./styles.css";
+import { UiCoreProvider } from "ui";
+import { SessionProvider, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { ReactElement } from "react";
+import dynamic from "next/dynamic";
+import { useAppStore } from "../store";
+import { appWithTranslation } from "next-i18next";
 
-const Navbar = dynamic(() => import('../components/navbar'), {
+const Navbar = dynamic(() => import("../components/navbar"), {
   ssr: true,
   // loading: () => <>Loading ...</>,
 });
@@ -25,7 +25,7 @@ function CustomApp({
       <Head>
         <title>Welcome to commerce!</title>
       </Head>
-      <main className='app'>
+      <main className="app">
         <SessionProvider session={session}>
           <UiCoreProvider lang={nextLocale} themeMode={themeMode}>
             <Navbar />
@@ -50,11 +50,11 @@ function Auth({ children }: { children: ReactElement }) {
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
-      router.push('/auth/login');
+      router.push("/auth/login");
     },
   });
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return <div>Page Loading...</div>;
   }
 

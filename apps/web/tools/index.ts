@@ -1,2 +1,2 @@
-export * from './apiConnection';
-export * from './checkAuth';
+export * from "./apiConnection";
+export * from "./checkAuth";

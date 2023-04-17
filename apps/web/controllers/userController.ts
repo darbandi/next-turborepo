@@ -1,18 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import Profile from '../models/Profile';
-import User from '../models/User';
+import { NextApiRequest, NextApiResponse } from "next";
+import Profile from "../models/Profile";
+import User from "../models/User";
 
 // Get all users
 export const getAllUsers = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const {
       page = 1,
       perPage = 10,
-      userName = '',
-      email = '',
+      userName = "",
+      email = "",
     } = req.query || {};
     const filters = {
       ...(userName ? { userName: { $regex: userName } } : {}),
@@ -49,7 +49,7 @@ export const createUser = async (req: NextApiRequest, res: NextApiResponse) => {
 // Get a single user by ID
 export const getUserById = async (
   req: NextApiRequest,
-  res: NextApiResponse,
+  res: NextApiResponse
 ) => {
   try {
     const user = await User.findById(req.query.id);

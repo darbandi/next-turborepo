@@ -1,7 +1,10 @@
-
-import { NextApiRequest, NextApiResponse } from 'next';
-import { apiConnection, checkAuth } from '../../../tools';
-import { deleteUser, getUserById, updateUser } from '../../../controllers/userController';
+import { NextApiRequest, NextApiResponse } from "next";
+import { apiConnection, checkAuth } from "../../../tools";
+import {
+  deleteUser,
+  getUserById,
+  updateUser,
+} from "../../../controllers/userController";
 
 const handler = apiConnection
   .get(async (req: NextApiRequest, res: NextApiResponse) => {

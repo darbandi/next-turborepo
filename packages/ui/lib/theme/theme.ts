@@ -1,12 +1,12 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface ComponentsProps {
     MuiTextField?: {
       labelProps?: {
-        dir?: 'ltr' | 'rtl'
-      }
-    }
+        dir?: "ltr" | "rtl";
+      };
+    };
   }
 }
 
@@ -22,201 +22,201 @@ const common = {
   },
   spacing: 4,
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: "Roboto, sans-serif",
     fontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
     h1: {
-      fontSize: '2.5rem',
+      fontSize: "2.5rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '-0.01562em',
+      letterSpacing: "-0.01562em",
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: "2rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '-0.00833em',
+      letterSpacing: "-0.00833em",
     },
     h3: {
-      fontSize: '1.75rem',
+      fontSize: "1.75rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '0em',
+      letterSpacing: "0em",
     },
     h4: {
-      fontSize: '1.5rem',
+      fontSize: "1.5rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '0.00735em',
+      letterSpacing: "0.00735em",
     },
     h5: {
-      fontSize: '1.25rem',
+      fontSize: "1.25rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '0em',
+      letterSpacing: "0em",
     },
     h6: {
-      fontSize: '1rem',
+      fontSize: "1rem",
       fontWeight: 500,
       lineHeight: 1.2,
-      letterSpacing: '0.0075em',
+      letterSpacing: "0.0075em",
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: "1rem",
       fontWeight: 400,
       lineHeight: 1.5,
-      letterSpacing: '0.00938em',
+      letterSpacing: "0.00938em",
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: "0.875rem",
       fontWeight: 400,
       lineHeight: 1.5,
-      letterSpacing: '0.01071em',
+      letterSpacing: "0.01071em",
     },
   },
-}
+};
 
 export const lightTheme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: '#512DA8',
+        main: "#512DA8",
       },
       secondary: {
-        main: '#E040FB',
+        main: "#E040FB",
       },
       error: {
-        main: '#c31005',
+        main: "#c31005",
       },
       background: {
-        default: '#212121',
-        paper: '#2d2d2d',
+        default: "#212121",
+        paper: "#2d2d2d",
       },
       success: {
-        main: '#4caf50',
+        main: "#4caf50",
       },
-      divider: '#757575',
+      divider: "#757575",
     },
     shape: {
       borderRadius: 6,
     },
     props: {
       MuiButton: {
-        size: 'small',
+        size: "small",
       },
       MuiButtonGroup: {
-        size: 'small',
+        size: "small",
       },
       MuiCheckbox: {
-        size: 'small',
+        size: "small",
       },
       MuiFab: {
-        size: 'small',
+        size: "small",
       },
       MuiFormControl: {
-        margin: 'dense',
-        size: 'small',
+        margin: "dense",
+        size: "small",
       },
       MuiFormHelperText: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiIconButton: {
-        size: 'small',
+        size: "small",
       },
       MuiInputBase: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiInputLabel: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiRadio: {
-        size: 'small',
+        size: "small",
       },
       MuiSwitch: {
-        size: 'small',
+        size: "small",
       },
       MuiTextField: {
-        margin: 'dense',
-        size: 'small',
+        margin: "dense",
+        size: "small",
       },
       MuiTooltip: {
         arrow: true,
       },
     },
     ...common,
-  }),
-)
+  })
+);
 
 export const darkTheme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: '#512DA8',
+        main: "#512DA8",
       },
       secondary: {
-        main: '#E040FB',
+        main: "#E040FB",
       },
       error: {
-        main: '#c31005',
+        main: "#c31005",
       },
       background: {
-        default: '#212121',
-        paper: '#2d2d2d',
+        default: "#212121",
+        paper: "#2d2d2d",
       },
       success: {
-        main: '#4caf50',
+        main: "#4caf50",
       },
-      divider: '#757575',
+      divider: "#757575",
     },
     shape: {
       borderRadius: 6,
     },
     props: {
       MuiButton: {
-        size: 'small',
+        size: "small",
       },
       MuiButtonGroup: {
-        size: 'small',
+        size: "small",
       },
       MuiCheckbox: {
-        size: 'small',
+        size: "small",
       },
       MuiFab: {
-        size: 'small',
+        size: "small",
       },
       MuiFormControl: {
-        margin: 'dense',
-        size: 'small',
+        margin: "dense",
+        size: "small",
       },
       MuiFormHelperText: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiIconButton: {
-        size: 'small',
+        size: "small",
       },
       MuiInputBase: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiInputLabel: {
-        margin: 'dense',
+        margin: "dense",
       },
       MuiRadio: {
-        size: 'small',
+        size: "small",
       },
       MuiSwitch: {
-        size: 'small',
+        size: "small",
       },
       MuiTextField: {
-        margin: 'dense',
-        size: 'small',
+        margin: "dense",
+        size: "small",
       },
       MuiTooltip: {
         arrow: true,
       },
     },
     ...common,
-  }),
-)
+  })
+);

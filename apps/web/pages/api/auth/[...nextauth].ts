@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
-import NextAuth, { NextAuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import GoogleProvider from 'next-auth/providers/google';
-import { compare } from 'bcrypt';
-import dbConnect from '../../../lib/dbConnect';
-import User from '../../../models/User';
+import jwt from "jsonwebtoken";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import { compare } from "bcrypt";
+import dbConnect from "../../../lib/dbConnect";
+import User from "../../../models/User";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
-      name: 'credentials',
+      name: "credentials",
       credentials: {},
       async authorize(credentials) {
         await dbConnect();
@@ -30,12 +30,12 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
           };
         }
-        throw new Error('Invalid Credentials');
+        throw new Error("Invalid Credentials");
       },
     }),
   ],
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
     updateAge: 24 * 60 * 60, // 24 hours
   },
@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: '/auth/login',
+    signIn: "/auth/login",
   },
   callbacks: {
     async jwt({ token, user, account }) {

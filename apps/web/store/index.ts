@@ -1,6 +1,6 @@
-import { StateCreator, create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { getCurrentUser } from '../api';
+import { StateCreator, create } from "zustand";
+import { persist } from "zustand/middleware";
+import { getCurrentUser } from "../api";
 
 type StoreType = {
   count: number;
@@ -13,7 +13,7 @@ type StoreType = {
 
 const createProductSlice: StateCreator<StoreType> = (set) => ({
   count: 1,
-  themeMode: 'dark',
+  themeMode: "dark",
   user: {},
   inc: () => set((state) => ({ count: state.count + 1 })),
   getCurrentUser: async (id: string) => {
@@ -22,7 +22,7 @@ const createProductSlice: StateCreator<StoreType> = (set) => ({
   },
   changeTheme: async () => {
     set((state) => ({
-      themeMode: state.themeMode === 'dark' ? 'light' : 'dark',
+      themeMode: state.themeMode === "dark" ? "light" : "dark",
     }));
   },
 });
@@ -33,7 +33,7 @@ export const useAppStore = create<StoreType>()(
       ...createProductSlice(...a),
     }),
     {
-      name: 'store',
-    },
-  ),
+      name: "store",
+    }
+  )
 );

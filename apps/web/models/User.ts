@@ -1,5 +1,5 @@
-import mongoose, { Model, Schema } from 'mongoose';
-import { hash } from 'bcrypt';
+import mongoose, { Model, Schema } from "mongoose";
+import { hash } from "bcrypt";
 
 export interface IUser {
   userName: string;
@@ -13,8 +13,8 @@ const UserSchema: Schema<IUser> = new mongoose.Schema({
   password: String,
 });
 
-UserSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) {
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
     next();
   }
   this.password = await hash(this.password, 10);
@@ -30,4 +30,4 @@ UserSchema.methods.toJSON = function () {
 };
 
 export default (mongoose.models.User ||
-  mongoose.model('User', UserSchema)) as typeof Model;
+  mongoose.model("User", UserSchema)) as typeof Model;
