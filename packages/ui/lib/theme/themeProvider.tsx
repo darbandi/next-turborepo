@@ -2,10 +2,10 @@ import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { Theme } from "@mui/material";
 import { ThemeProvider as Provider } from "@mui/material/styles";
-import { ReactElement } from "react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import { darkTheme, lightTheme } from "./theme";
+import React from "react";
 
 const cacheRtl = createCache({
   key: "muirtl",
@@ -18,12 +18,11 @@ const cacheLtr = createCache({
 });
 
 type ThemeProviderProps = {
-  children: ReactElement;
   lang?: string;
   themeMode?: string;
 };
 
-export const ThemeProvider = (props: ThemeProviderProps) => {
+export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const { children, lang = "fa", themeMode = "dark" } = props;
   const direction = lang === "fa" ? "rtl" : "ltr";
   const theme: Theme = {
