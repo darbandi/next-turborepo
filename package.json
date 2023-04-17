@@ -1,17 +1,17 @@
 {
 	"private": true,
 	"scripts": {
-		"build": "turbo run build --no-daemon",
-		"build:web": "turbo run build --no-daemon --filter=web",
-		"dev": "turbo run dev --no-daemon",
-		"dev:web": "turbo run dev --no-daemon --filter=web",
-		"lint": "turbo run lint --no-daemon",
-		"lint:web": "turbo run lint --no-daemon --filter=web",
+		"build": "turbo run build",
+		"build:web": "turbo run build --filter=web",
+		"dev": "turbo run dev",
+		"dev:web": "turbo run dev --filter=web",
+		"lint": "turbo run lint",
+		"lint:web": "turbo run lint --filter=web",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"prepare": "husky install",
 		"create-app": "npx create-next-app@latest",
-		"test": "turbo run test --no-daemon",
-		"test:web": "turbo run test --no-daemon --filter=web"
+		"test": "turbo run test",
+		"test:web": "turbo run test --filter=web"
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0",
