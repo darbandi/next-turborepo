@@ -31,7 +31,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   };
   return (
     <CacheProvider value={lang === "fa" ? cacheRtl : cacheLtr}>
-      <Provider theme={theme as Theme}>{children}</Provider>
+      <Provider theme={theme as Theme}><>{children}</></Provider>
     </CacheProvider>
   );
 };
