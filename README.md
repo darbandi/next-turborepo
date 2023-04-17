@@ -42,6 +42,8 @@
 - Next Connect
 - React Hook Form
 - YUP
+- Husky
+- Commit lint
 
 # Turbo repo start
 
