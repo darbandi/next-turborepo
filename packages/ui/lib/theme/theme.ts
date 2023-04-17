@@ -83,27 +83,70 @@ export const lightTheme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: '#fff',
+        main: '#512DA8',
       },
       secondary: {
-        main: '#999999',
+        main: '#E040FB',
+      },
+      error: {
+        main: '#c31005',
+      },
+      background: {
+        default: '#212121',
+        paper: '#2d2d2d',
+      },
+      success: {
+        main: '#4caf50',
+      },
+      divider: '#757575',
+    },
+    shape: {
+      borderRadius: 6,
+    },
+    props: {
+      MuiButton: {
+        size: 'small',
+      },
+      MuiButtonGroup: {
+        size: 'small',
+      },
+      MuiCheckbox: {
+        size: 'small',
+      },
+      MuiFab: {
+        size: 'small',
+      },
+      MuiFormControl: {
+        margin: 'dense',
+        size: 'small',
+      },
+      MuiFormHelperText: {
+        margin: 'dense',
+      },
+      MuiIconButton: {
+        size: 'small',
+      },
+      MuiInputBase: {
+        margin: 'dense',
+      },
+      MuiInputLabel: {
+        margin: 'dense',
+      },
+      MuiRadio: {
+        size: 'small',
+      },
+      MuiSwitch: {
+        size: 'small',
+      },
+      MuiTextField: {
+        margin: 'dense',
+        size: 'small',
+      },
+      MuiTooltip: {
+        arrow: true,
       },
     },
     ...common,
-    // components: {
-    //   MuiTextField: {
-    //     styleOverrides: {
-    //       root: {
-    //         '& label.Mui-focused': {
-    //           color: 'green',
-    //         },
-    //         '& .MuiInputBase-input': {},
-    //         '& .MuiInputBase-root': {},
-    //         '& .MuiInputLabel-root': {},
-    //       },
-    //     },
-    //   },
-    // },
   }),
 )
 
@@ -111,33 +154,69 @@ export const darkTheme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: '#000',
+        main: '#512DA8',
       },
       secondary: {
-        main: '#333333',
+        main: '#E040FB',
+      },
+      error: {
+        main: '#c31005',
+      },
+      background: {
+        default: '#212121',
+        paper: '#2d2d2d',
+      },
+      success: {
+        main: '#4caf50',
+      },
+      divider: '#757575',
+    },
+    shape: {
+      borderRadius: 6,
+    },
+    props: {
+      MuiButton: {
+        size: 'small',
+      },
+      MuiButtonGroup: {
+        size: 'small',
+      },
+      MuiCheckbox: {
+        size: 'small',
+      },
+      MuiFab: {
+        size: 'small',
+      },
+      MuiFormControl: {
+        margin: 'dense',
+        size: 'small',
+      },
+      MuiFormHelperText: {
+        margin: 'dense',
+      },
+      MuiIconButton: {
+        size: 'small',
+      },
+      MuiInputBase: {
+        margin: 'dense',
+      },
+      MuiInputLabel: {
+        margin: 'dense',
+      },
+      MuiRadio: {
+        size: 'small',
+      },
+      MuiSwitch: {
+        size: 'small',
+      },
+      MuiTextField: {
+        margin: 'dense',
+        size: 'small',
+      },
+      MuiTooltip: {
+        arrow: true,
       },
     },
     ...common,
-    // components: {
-    //   MuiTextField: {
-    //     styleOverrides: {
-    //       root: {
-    //         '& label.Mui-focused': {
-    //           color: 'green',
-    //           textAlign: 'right',
-    //         },
-    //         '& .MuiInputBase-input': {
-    //           textAlign: 'right',
-    //         },
-    //         '& .MuiInputBase-root': {
-    //           textAlign: 'right',
-    //         },
-    //         '& .MuiInputLabel-root': {
-    //           textAlign: 'right',
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
   }),
 )
