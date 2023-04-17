@@ -21,27 +21,23 @@ function CustomApp({
 	const { locale: nextLocale } = useRouter();
 	const { themeMode } = useAppStore();
 	return (
-		<>
-			<Head>
-				<title>Welcome to commerce!</title>
-			</Head>
-			<main className='app'>
-				<SessionProvider session={session}>
-					<UiCoreProvider lang={nextLocale} themeMode={themeMode}>
-						<>
-							<Navbar />
-							{Component.auth ? (
-								<Auth>
-									<Component {...pageProps} />
-								</Auth>
-							) : (
-								<Component {...pageProps} />
-							)}
-						</>
-					</UiCoreProvider>
-				</SessionProvider>
-			</main>
-		</>
+		<SessionProvider session={session}>
+			<Navbar />
+			<UiCoreProvider lang={nextLocale} themeMode={themeMode}>
+				<Head>
+					<title>Welcome to commerce!</title>
+				</Head>
+				<main className='app'>
+					{Component.auth ? (
+						<Auth>
+							<Component {...pageProps} />
+						</Auth>
+					) : (
+						<Component {...pageProps} />
+					)}
+				</main>
+			</UiCoreProvider>
+		</SessionProvider>
 	);
 }
 
