@@ -9,8 +9,8 @@ import User from "../../../models/User";
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env["GOOGLE_CLIENT_ID"],
+      clientSecret: process.env["GOOGLE_CLIENT_SECRET"],
     }),
     CredentialsProvider({
       name: "credentials",
@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days
     updateAge: 24 * 60 * 60, // 24 hours
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env["NEXTAUTH_SECRET"],
   jwt: {
     async encode({ secret, token }) {
       return jwt.sign(token, secret);
