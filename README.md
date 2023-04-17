@@ -1,6 +1,6 @@
 ## 🖥️ Server
 
--   Turbo Monorepo
+-   Turborepo
 
 ## 🛠️ Technologies
 
@@ -48,5 +48,16 @@
 # Turbo repo start
 
 ```js
-pnpm dev
+$ pnpm dev
+$ pnpm dev:web
+
+$ pnpm build
+$ pnpm build:web
+
+$ pnpm lint
+$ pnpm lint:web
+
+$ pnpm format
+$ pnpm create-app
+$ pnpm test
 ```
