@@ -14,6 +14,8 @@ const Navbar = dynamic(() => import('../components/navbar'), {
 	// loading: () => <>Loading ...</>,
 });
 
+console.log('Navbar', typeof Navbar);
+
 function CustomApp({
 	Component,
 	pageProps: { session, ...pageProps }
@@ -22,20 +24,22 @@ function CustomApp({
 	const { themeMode } = useAppStore();
 	return (
 		<SessionProvider session={session}>
-			<Navbar />
+			<Head>
+				<title>Welcome to commerce!</title>
+			</Head>
 			<UiCoreProvider lang={nextLocale} themeMode={themeMode}>
-				<Head>
-					<title>Welcome to commerce!</title>
-				</Head>
-				<main className='app'>
-					{Component.auth ? (
-						<Auth>
+				<>
+					<Navbar />
+					<main className='app'>
+						{Component.auth ? (
+							<Auth>
+								<Component {...pageProps} />
+							</Auth>
+						) : (
 							<Component {...pageProps} />
-						</Auth>
-					) : (
-						<Component {...pageProps} />
-					)}
-				</main>
+						)}
+					</main>
+				</>
 			</UiCoreProvider>
 		</SessionProvider>
 	);
