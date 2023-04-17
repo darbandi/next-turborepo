@@ -1,49 +1,49 @@
 ## 🖥️ Server
 
-- Turbo Monorepo
+-   Turbo Monorepo
 
 ## 🛠️ Technologies
 
-- NextJS 13
-- Typescript
+-   NextJS 13
+-   Typescript
 
 ## 🔒 Authentication
 
-- Next Auth
-- JWT
+-   Next Auth
+-   JWT
 
 ## 🎨 UI
 
-- MUI
-- Styled Components
+-   MUI
+-   Styled Components
 
 ## 🔄 State Management
 
-- Zustand
+-   Zustand
 
 ## 🗃️ Database
 
-- MongoDB
+-   MongoDB
 
 ## 🔐 Encryption
 
-- BCrypt
+-   BCrypt
 
 ## 📐 TypeCheck And Fonmatter
 
-- Eslint
-- Prettier
-- Typescript
+-   Eslint
+-   Prettier
+-   Typescript
 
 ## 📚 Other Libs
 
-- Release Note
-- TS Check
-- Next Connect
-- React Hook Form
-- YUP
-- Husky
-- Commit lint
+-   Release Note
+-   TS Check
+-   Next Connect
+-   React Hook Form
+-   YUP
+-   Husky
+-   Commit lint
 
 # Turbo repo start
 

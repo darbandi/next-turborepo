@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
-const Home = dynamic(() => import("../../containers/home"), {
-  ssr: true,
+const Home = dynamic(() => import('../../containers/home'), {
+	ssr: true
 });
 
 export function Index() {
-  return <Home />;
+	return <Home />;
 }
 
 export default Index;

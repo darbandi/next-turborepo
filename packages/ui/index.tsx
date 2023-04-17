@@ -1,2 +1,2 @@
-import * as React from "react";
-export * from "./lib";
+import * as React from 'react';
+export * from './lib';
