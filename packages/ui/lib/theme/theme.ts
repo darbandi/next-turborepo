@@ -103,49 +103,6 @@ export const lightTheme = responsiveFontSizes(
     shape: {
       borderRadius: 6,
     },
-    props: {
-      MuiButton: {
-        size: "small",
-      },
-      MuiButtonGroup: {
-        size: "small",
-      },
-      MuiCheckbox: {
-        size: "small",
-      },
-      MuiFab: {
-        size: "small",
-      },
-      MuiFormControl: {
-        margin: "dense",
-        size: "small",
-      },
-      MuiFormHelperText: {
-        margin: "dense",
-      },
-      MuiIconButton: {
-        size: "small",
-      },
-      MuiInputBase: {
-        margin: "dense",
-      },
-      MuiInputLabel: {
-        margin: "dense",
-      },
-      MuiRadio: {
-        size: "small",
-      },
-      MuiSwitch: {
-        size: "small",
-      },
-      MuiTextField: {
-        margin: "dense",
-        size: "small",
-      },
-      MuiTooltip: {
-        arrow: true,
-      },
-    },
     ...common,
   })
 );
@@ -173,49 +130,6 @@ export const darkTheme = responsiveFontSizes(
     },
     shape: {
       borderRadius: 6,
-    },
-    props: {
-      MuiButton: {
-        size: "small",
-      },
-      MuiButtonGroup: {
-        size: "small",
-      },
-      MuiCheckbox: {
-        size: "small",
-      },
-      MuiFab: {
-        size: "small",
-      },
-      MuiFormControl: {
-        margin: "dense",
-        size: "small",
-      },
-      MuiFormHelperText: {
-        margin: "dense",
-      },
-      MuiIconButton: {
-        size: "small",
-      },
-      MuiInputBase: {
-        margin: "dense",
-      },
-      MuiInputLabel: {
-        margin: "dense",
-      },
-      MuiRadio: {
-        size: "small",
-      },
-      MuiSwitch: {
-        size: "small",
-      },
-      MuiTextField: {
-        margin: "dense",
-        size: "small",
-      },
-      MuiTooltip: {
-        arrow: true,
-      },
     },
     ...common,
   })
