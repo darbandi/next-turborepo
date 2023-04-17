@@ -1,10 +1,19 @@
-import { Button } from "ui";
+import dynamic from 'next/dynamic';
+import { getServerSidePropsWithTranslation } from '../lib/getServerSidePropsWithTranslation';
+const MainSSR = dynamic(() => import('../containers/main/MainSSR'), {
+  ssr: true,
+});
+const MainNoSSR = dynamic(() => import('../containers/main/MainNoSSR'), {
+  ssr: false,
+});
 
-export default function Web() {
+export function Index() {
   return (
-    <div>
-      <h1>Web</h1>
-      <Button />
-    </div>
+    <>
+      <MainSSR />
+      <MainNoSSR />
+    </>
   );
 }
+export const getServerSideProps = getServerSidePropsWithTranslation;
+export default Index;
