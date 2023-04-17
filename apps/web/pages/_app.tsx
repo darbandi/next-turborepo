@@ -28,14 +28,16 @@ function CustomApp({
       <main className="app">
         <SessionProvider session={session}>
           <UiCoreProvider lang={nextLocale} themeMode={themeMode}>
-            <Navbar />
-            {Component.auth ? (
-              <Auth>
+            <>
+              <Navbar />
+              {Component.auth ? (
+                <Auth>
+                  <Component {...pageProps} />
+                </Auth>
+              ) : (
                 <Component {...pageProps} />
-              </Auth>
-            ) : (
-              <Component {...pageProps} />
-            )}
+              )}
+            </>
           </UiCoreProvider>
         </SessionProvider>
       </main>

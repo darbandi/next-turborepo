@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 import { ThemeProvider } from "./theme/themeProvider";
 
 export interface UiCoreProviderProps {
-  children: ReactNode;
+  children: ReactElement;
   lang?: string;
   themeMode?: string;
 }
