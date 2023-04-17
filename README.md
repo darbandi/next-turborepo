@@ -45,7 +45,7 @@
 -   Husky
 -   Commit lint
 
-# Turbo repo start
+# Turborepo start
 
 ```js
 $ pnpm dev
@@ -59,5 +59,7 @@ $ pnpm lint:web
 
 $ pnpm format
 $ pnpm create-app
+
 $ pnpm test
+$ pnpm test:web
 ```
