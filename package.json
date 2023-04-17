@@ -1,9 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "turbo run build --no-daemon",
+    "build:web": "turbo run build --no-daemon --filter=web",
+    "dev": "turbo run dev --no-daemon",
+    "dev:web": "turbo run dev --no-daemon --filter=web",
+    "lint": "turbo run lint --no-daemon",
+    "lint:web": "turbo run lint --no-daemon --filter=web",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install"
   },
