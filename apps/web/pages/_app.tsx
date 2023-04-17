@@ -14,8 +14,6 @@ const Navbar = dynamic(() => import('../components/navbar'), {
 	// loading: () => <>Loading ...</>,
 });
 
-console.log('Navbar', typeof Navbar);
-
 function CustomApp({
 	Component,
 	pageProps: { session, ...pageProps }
