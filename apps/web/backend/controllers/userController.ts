@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import Profile from '../models/Profile';
-import User from '../models/User';
+import Profile from 'backend/models/Profile';
+import User from 'backend/models/User';
 
 // Get all users
 export const getAllUsers = async (req: NextApiRequest, res: NextApiResponse) => {

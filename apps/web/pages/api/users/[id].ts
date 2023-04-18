@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { apiConnection, checkAuth } from '../../../tools';
-import { deleteUser, getUserById, updateUser } from '../../../controllers/userController';
+import { apiConnection, checkAuth } from 'backend/tools';
+import { deleteUser, getUserById, updateUser } from 'backend/controllers/userController';
 
 const handler = apiConnection
 	.get(async (req: NextApiRequest, res: NextApiResponse) => {

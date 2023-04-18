@@ -6,6 +6,6 @@ module.exports = {
   reloadOnPrerender: true,
   localePath:
     typeof window === 'undefined'
-      ? require('path').resolve('./locales')
+      ? require('path').resolve('./client/locales')
       : '/public/locales',
 };

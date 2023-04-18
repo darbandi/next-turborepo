@@ -12,10 +12,10 @@ import {
 } from '@mui/material';
 
 import Link from 'next/link';
-import { Nightlight, LightMode, GTranslate, Translate } from '@mui/icons-material';
+import { Nightlight, LightMode } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/react';
-import { useAppStore } from '../../store';
+import { useAppStore } from 'store';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	navLink: {

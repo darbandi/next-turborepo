@@ -1,4 +1,4 @@
-import LoginPage from '../../../containers/auth/login';
+import LoginPage from 'client/containers/auth/login';
 
 export function Index() {
 	return <LoginPage />;

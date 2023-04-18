@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useAppStore } from '../../../store';
+import { useAppStore } from 'store';
 
 export function LoginPage() {
 	const [error, setError] = useState('');

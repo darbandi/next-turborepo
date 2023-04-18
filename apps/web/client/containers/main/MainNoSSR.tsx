@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
-import { useAppStore } from '../../store';
+import { useAppStore } from 'store';
 
 export const Main: NextPage = () => {
 	const { data: session } = useSession();

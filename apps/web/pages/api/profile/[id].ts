@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { apiConnection, checkAuth } from '../../../tools';
+import { apiConnection, checkAuth } from 'backend/tools';
 import {
 	deleteProfile,
 	getProfileById,
 	updateProfile
-} from '../../../controllers/profileController';
+} from 'backend/controllers/profileController';
 
 const handler = apiConnection
 	.get(async (req: NextApiRequest, res: NextApiResponse) => {

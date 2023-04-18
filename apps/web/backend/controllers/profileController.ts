@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import Profile from '../models/Profile';
+import Profile from 'backend/models/Profile';
 
 // Get all profiles
 export const getAllProfiles = async (req: NextApiRequest, res: NextApiResponse) => {

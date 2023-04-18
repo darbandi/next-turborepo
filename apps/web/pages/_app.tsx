@@ -6,10 +6,10 @@ import { SessionProvider, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import dynamic from 'next/dynamic';
-import { useAppStore } from '../store';
+import { useAppStore } from 'store';
 import { appWithTranslation } from 'next-i18next';
 
-const Navbar = dynamic(() => import('../components/navbar'), {
+const Navbar = dynamic(() => import('client/components/navbar'), {
 	ssr: true
 	// loading: () => <>Loading ...</>,
 });

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { apiConnection, checkAuth } from '../../../tools';
-import { createProfile, getAllProfiles } from '../../../controllers/profileController';
+import { apiConnection, checkAuth } from 'backend/tools';
+import { createProfile, getAllProfiles } from 'backend/controllers/profileController';
 
 const handler = apiConnection
 	.get(async (req: NextApiRequest, res: NextApiResponse) => {

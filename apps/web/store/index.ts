@@ -1,6 +1,6 @@
 import { StateCreator, create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { getCurrentUser } from '../api';
+import { getCurrentUser } from 'client/api';
 
 type StoreType = {
 	count: number;
