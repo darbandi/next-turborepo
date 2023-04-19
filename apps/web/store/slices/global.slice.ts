@@ -20,7 +20,7 @@ export const globalSlice: StateCreator<GlobalSliceType> = set => ({
 	getCurrentUser: async (id: string) => {
 		const result = await getCurrentUser({ id });
 		console.log(result.data);
-		
+
 		set({ user: result.data });
 	},
 	changeTheme: async () => {

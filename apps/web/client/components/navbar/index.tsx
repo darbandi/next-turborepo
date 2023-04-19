@@ -46,7 +46,7 @@ export const Navbar = ({ children }: NavbarProps) => {
 	const themeMode = useAppStore(store => store.themeMode);
 	const changeTheme = useAppStore(store => store.changeTheme);
 	const signOut = useAppStore(store => store.signOut);
-	
+
 	const { push, locale: nextLocale, pathname, query, asPath } = useRouter();
 
 	const handleChangeLang = () => {

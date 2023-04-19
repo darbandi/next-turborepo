@@ -1,2 +1,2 @@
-export * from './product.slice'
-export * from './global.slice'
+export * from './product.slice';
+export * from './global.slice';
