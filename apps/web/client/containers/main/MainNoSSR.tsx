@@ -6,7 +6,8 @@ import { useAppStore } from 'store';
 
 export const Main: NextPage = () => {
 	const { data: session } = useSession();
-	const { count, inc } = useAppStore(store => store);
+	const inc = useAppStore(store => store.inc);
+	const count = useAppStore(store => store.count);
 	const { t } = useTranslation('common');
 
 	return (

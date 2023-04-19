@@ -19,7 +19,7 @@ function CustomApp({
 	pageProps: { session, ...pageProps }
 }: AppProps & { Component: { auth: boolean } }) {
 	const { locale: nextLocale } = useRouter();
-	const { themeMode } = useAppStore();
+	const themeMode = useAppStore(store => store.themeMode);
 	return (
 		<SessionProvider session={session}>
 			<Head>

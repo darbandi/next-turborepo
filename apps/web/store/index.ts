@@ -1,36 +1,14 @@
-import { StateCreator, create } from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { getCurrentUser } from 'client/api';
+import { ProductSliceType, productSlice, globalSlice, GlobalSliceType } from './slices';
 
-type StoreType = {
-	count: number;
-	themeMode: string;
-	inc: () => void;
-	user: object;
-	getCurrentUser: (id: string) => void;
-	changeTheme: () => void;
-};
+type AppStoreType = ProductSliceType & GlobalSliceType;
 
-const createProductSlice: StateCreator<StoreType> = set => ({
-	count: 1,
-	themeMode: 'dark',
-	user: {},
-	inc: () => set(state => ({ count: state.count + 1 })),
-	getCurrentUser: async (id: string) => {
-		const result = await getCurrentUser({ id });
-		set(() => ({ user: result.data }));
-	},
-	changeTheme: async () => {
-		set(state => ({
-			themeMode: state.themeMode === 'dark' ? 'light' : 'dark'
-		}));
-	}
-});
-
-export const useAppStore = create<StoreType>()(
+export const useAppStore = create<AppStoreType>()(
 	persist(
 		(...a) => ({
-			...createProductSlice(...a)
+			...globalSlice(...a),
+			...productSlice(...a)
 		}),
 		{
 			name: 'store'

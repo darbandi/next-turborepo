@@ -14,7 +14,7 @@ import {
 import Link from 'next/link';
 import { Nightlight, LightMode } from '@mui/icons-material';
 import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useAppStore } from 'store';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -43,19 +43,16 @@ export const Navbar = ({ children }: NavbarProps) => {
 	const classes = useStyles();
 	const { data: session, status } = useSession();
 
-	const { themeMode, changeTheme } = useAppStore(store => store);
-
+	const themeMode = useAppStore(store => store.themeMode);
+	const changeTheme = useAppStore(store => store.changeTheme);
+	const signOut = useAppStore(store => store.signOut);
+	
 	const { push, locale: nextLocale, pathname, query, asPath } = useRouter();
 
 	const handleChangeLang = () => {
 		push({ pathname, query }, asPath, {
 			locale: nextLocale === 'fa' ? 'en' : 'fa'
 		});
-	};
-
-	const handleSignOut = () => {
-		localStorage.clear();
-		signOut({ redirect: false });
 	};
 
 	const navItems = [
@@ -97,7 +94,7 @@ export const Navbar = ({ children }: NavbarProps) => {
 				<Box className={classes.separator}></Box>
 				{status === 'authenticated' ? (
 					<Button
-						onClick={handleSignOut}
+						onClick={signOut}
 						variant='text'
 						color='secondary'
 						sx={{

@@ -11,15 +11,15 @@ import { useAppStore } from 'store';
 export function LoginPage() {
 	const [error, setError] = useState('');
 	const router = useRouter();
-	const { data } = useSession();
-	const store = useAppStore(store => store);
+	const { data: session, status } = useSession();
+	const getCurrentUser = useAppStore(store => store.getCurrentUser);
 
 	useEffect(() => {
-		if (data?.user) {
-			const user = data.user as { id: string };
-			store.getCurrentUser(user?.id as string);
+		if (session?.user) {
+			const user = session.user as { id: string };
+			getCurrentUser(user?.id as string);
 		}
-	}, [data, store]);
+	}, [session, getCurrentUser]);
 
 	const schema = yup.object().shape({
 		email: yup.string().required('Email is required'),
@@ -42,10 +42,14 @@ export function LoginPage() {
 		});
 		if (result.error) {
 			setError(result.error);
-		} else {
-			router.push('/');
 		}
 	};
+
+	if (status === 'loading') return null;
+	if (status === 'authenticated') {
+		router.push('/');
+		return null;
+	}
 
 	return (
 		<Box display='flex' alignItems='center' justifyContent='center'>
@@ -74,7 +78,12 @@ export function LoginPage() {
 						error={Boolean(errors.password)}
 						helperText={<>{errors.email?.message}</>}
 					/>
-					<Button type='submit' variant='contained' color='primary'>
+					<Button
+						// disabled={!userLoading}
+						type='submit'
+						variant='contained'
+						color='primary'
+					>
 						Sign in
 					</Button>
 				</form>
