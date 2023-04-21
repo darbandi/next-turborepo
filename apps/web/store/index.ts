@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { ProductSliceType, productSlice, globalSlice, GlobalSliceType } from './slices';
-
-type AppStoreType = ProductSliceType & GlobalSliceType;
+import { productSlice, globalSlice } from './slices';
+import { AppStoreType } from 'client/types';
 
 export const useAppStore = create<AppStoreType>()(
 	persist(

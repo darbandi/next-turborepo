@@ -1,43 +1,42 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
-import { UiCoreProvider } from 'ui';
+import { CustomAppType } from 'client/types';
 import { SessionProvider, useSession } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
-import dynamic from 'next/dynamic';
 import { useAppStore } from 'store';
-import { appWithTranslation } from 'next-i18next';
+import { UiCoreProvider } from 'ui';
+import './styles.css';
 
 const Navbar = dynamic(() => import('client/components/navbar'), {
 	ssr: true
-	// loading: () => <>Loading ...</>,
 });
 
-function CustomApp({
-	Component,
-	pageProps: { session, ...pageProps }
-}: AppProps & { Component: { auth: boolean } }) {
+function CustomApp(props: CustomAppType) {
+	const {
+		Component,
+		pageProps: { session, ...pageProps }
+	} = props;
 	const { locale: nextLocale } = useRouter();
 	const themeMode = useAppStore(store => store.themeMode);
+
 	return (
-		<SessionProvider session={session}>
+		<SessionProvider session={session} refetchInterval={60} refetchOnWindowFocus={true}>
 			<Head>
 				<title>Welcome to commerce!</title>
 			</Head>
 			<UiCoreProvider lang={nextLocale} themeMode={themeMode}>
-				<>
-					<Navbar />
-					<main className='app'>
-						{Component.auth ? (
-							<Auth>
-								<Component {...pageProps} />
-							</Auth>
-						) : (
+				<Navbar />
+				<main className='app'>
+					{Component.auth ? (
+						<Auth>
 							<Component {...pageProps} />
-						)}
-					</main>
-				</>
+						</Auth>
+					) : (
+						<Component {...pageProps} />
+					)}
+				</main>
 			</UiCoreProvider>
 		</SessionProvider>
 	);

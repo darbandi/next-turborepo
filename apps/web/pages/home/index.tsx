@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 const Home = dynamic(() => import('client/containers/home'), {
-	ssr: true
+	ssr: false
 });
 
 export function Index() {
@@ -9,5 +9,3 @@ export function Index() {
 }
 
 export default Index;
-
-Index.auth = true;

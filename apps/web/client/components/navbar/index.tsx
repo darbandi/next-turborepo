@@ -1,21 +1,17 @@
-import React from 'react';
+import { AppBar, Box, IconButton, SvgIcon, Theme, Toolbar, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import {
-	AppBar,
-	Toolbar,
-	Typography,
-	IconButton,
-	SvgIcon,
-	Box,
-	Theme,
-	Button
-} from '@mui/material';
+import React from 'react';
 
+import { LightMode, Nightlight } from '@mui/icons-material';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Nightlight, LightMode } from '@mui/icons-material';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
 import { useAppStore } from 'store';
+import { useSession } from 'next-auth/react';
+import { NavbarProps } from 'client/types';
+
+const User = dynamic(() => import('./user'), { ssr: false });
+const LoginActions = dynamic(() => import('./loginActions'), { ssr: false });
 
 const useStyles = makeStyles((theme: Theme) => ({
 	navLink: {
@@ -35,18 +31,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 	}
 }));
 
-type NavbarProps = {
-	children?: React.ReactNode;
-};
-
 export const Navbar = ({ children }: NavbarProps) => {
 	const classes = useStyles();
-	const { data: session, status } = useSession();
-
 	const themeMode = useAppStore(store => store.themeMode);
 	const changeTheme = useAppStore(store => store.changeTheme);
-	const signOut = useAppStore(store => store.signOut);
-
+	const { data: session } = useSession();
 	const { push, locale: nextLocale, pathname, query, asPath } = useRouter();
 
 	const handleChangeLang = () => {
@@ -65,16 +54,19 @@ export const Navbar = ({ children }: NavbarProps) => {
 			id: 2,
 			title: 'Main',
 			link: `/`
+		},
+		{
+			id: 3,
+			title: 'Dashboard',
+			link: `/admin/dashboard`,
+			hidden: !session?.user?.name
 		}
 	];
 
 	return (
 		<AppBar position='static'>
 			<Toolbar>
-				<Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-					{session ? `Hi, ${session?.user?.name}` : 'Welcome to commerce'}
-				</Typography>
-
+				<User />
 				{navItems?.map(nav => (
 					<Typography
 						variant='button'
@@ -87,43 +79,15 @@ export const Navbar = ({ children }: NavbarProps) => {
 							'px': 4
 						}}
 					>
-						<Link href={nav.link}>{nav.title}</Link>
+						{!nav?.hidden && <Link shallow href={nav.link}>{nav.title}</Link>}
 					</Typography>
 				))}
-
 				<Box className={classes.separator}></Box>
-				{status === 'authenticated' ? (
-					<Button
-						onClick={signOut}
-						variant='text'
-						color='secondary'
-						sx={{
-							'color': 'grey.500',
-							'&:hover': { color: 'grey.100' },
-							'px': 4
-						}}
-					>
-						logout
-					</Button>
-				) : (
-					<Typography
-						variant='button'
-						color='secondary'
-						sx={{
-							'textDecoration': 'none',
-							'color': 'grey.500',
-							'&:hover': { color: 'grey.100' },
-							'px': 4
-						}}
-					>
-						<Link href='/auth/login'>login</Link>
-					</Typography>
-				)}
+				<LoginActions />
 				<Box className={classes.separator}></Box>
 				<IconButton onClick={handleChangeLang} color='inherit'>
 					{nextLocale === 'fa' ? 'en' : 'fa'}
 				</IconButton>
-
 				<IconButton onClick={changeTheme} color='inherit'>
 					{themeMode === 'dark' ? (
 						<SvgIcon component={LightMode} />

@@ -1,3 +1,4 @@
 {
-  "title": "Test No SSR"
+  "title": "Test SSR",
+  "no-ssr":"no-ssr"
 }

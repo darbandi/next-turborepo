@@ -1,26 +1,30 @@
+import { IUser } from 'backend/models/User';
 import { getCurrentUser } from 'client/api';
 import { signOut } from 'next-auth/react';
 import { StateCreator } from 'zustand';
 
 export type GlobalSliceType = {
 	themeMode: string;
-	user: object;
+	user: IUser;
 	signOut: () => void;
 	getCurrentUser: (id: string) => void;
 	changeTheme: () => void;
 };
 
+const emptyUser = {
+	email: '',
+	userName: ''
+};
+
 export const globalSlice: StateCreator<GlobalSliceType> = set => ({
 	themeMode: 'dark',
-	user: {},
+	user: emptyUser,
 	signOut: async () => {
 		signOut({ redirect: false });
-		set({ user: {} });
+		set({ user: emptyUser });
 	},
 	getCurrentUser: async (id: string) => {
 		const result = await getCurrentUser({ id });
-		console.log(result.data);
-
 		set({ user: result.data });
 	},
 	changeTheme: async () => {

@@ -7,7 +7,7 @@ export function Home() {
 	return (
 		<Box className='container'>
 			<Link href='/'>index</Link>
-			<div className='container'>name: {session.user.name}</div>
+			<div className='container'>name: {session?.user?.name}</div>
 		</Box>
 	);
 }

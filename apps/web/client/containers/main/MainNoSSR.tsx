@@ -13,7 +13,7 @@ export const Main: NextPage = () => {
 	return (
 		<Box className='container'>
 			<Typography component='h3' variant='h3'>
-				{t('title')}
+				{t('no-ssr')}
 			</Typography>
 			<pre>{JSON.stringify(session ? session : {}, null, 2)}</pre>
 			<Button variant='contained' onClick={() => inc()}>

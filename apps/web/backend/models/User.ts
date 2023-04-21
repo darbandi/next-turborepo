@@ -4,7 +4,7 @@ import { hash } from 'bcrypt';
 export interface IUser {
 	userName: string;
 	email: string;
-	password: string;
+	password?: string;
 }
 
 const UserSchema: Schema<IUser> = new mongoose.Schema({
