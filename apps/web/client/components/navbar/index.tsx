@@ -10,8 +10,8 @@ import { useAppStore } from 'store';
 import { useSession } from 'next-auth/react';
 import { NavbarProps } from 'client/types';
 
-const User = dynamic(() => import('./user'), { ssr: false });
-const LoginActions = dynamic(() => import('./loginActions'), { ssr: false });
+const User = dynamic(() => import('./user'), { ssr: true });
+const LoginActions = dynamic(() => import('./loginActions'), { ssr: true });
 
 const useStyles = makeStyles((theme: Theme) => ({
 	navLink: {

@@ -1,12 +1,11 @@
 import { Typography } from '@mui/material';
-import React from 'react';
-import { useAppStore } from 'store';
+import { useSession } from 'next-auth/react';
 
 function User() {
-	const user = useAppStore(store => store.user);
+	const { data: session } = useSession();
 	return (
 		<Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-			{user?.userName ? `Hi, ${user?.userName}` : 'Welcome to commerce'}
+			{session?.user?.name ? `Hi, ${session?.user?.name}` : 'Welcome to commerce'}
 		</Typography>
 	);
 }

@@ -1,13 +1,13 @@
-import { Typography, Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react';
 import { useAppStore } from 'store';
 
 function LoginActions() {
-	const user = useAppStore(store => store.user);
+	const { data: session } = useSession();
 	const signOut = useAppStore(store => store.signOut);
     
-	if (user?.userName)
+	if (session?.user?.name)
 		return (
 			<Button
 				onClick={signOut}
