@@ -35,6 +35,10 @@
 -   Prettier
 -   Typescript
 
+## 🌐 Multi Language
+
+-   react-intl
+
 ## 📚 Other Libs
 
 -   Release Note

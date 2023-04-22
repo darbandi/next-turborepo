@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { getServerSidePropsWithTranslation } from 'backend/lib/getServerSidePropsWithTranslation';
+import { ssrConfig } from 'backend/lib/ssrConfig';
 const MainSSR = dynamic(() => import('client/containers/main/MainSSR'), {
 	ssr: true
 });
@@ -15,5 +15,5 @@ export function Index() {
 		</>
 	);
 }
-export const getServerSideProps = getServerSidePropsWithTranslation;
+export const getServerSideProps = ssrConfig;
 export default Index;

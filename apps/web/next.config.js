@@ -1,11 +1,9 @@
+const { i18n } = require('./next-i18next.config.js')
+
 module.exports = {
 	reactStrictMode: true,
 	transpilePackages: ['ui'],
-	i18n: {
-		localeDetection: false,
-		locales: ['fa', 'en'],
-		defaultLocale: 'fa'
-	},
+	i18n,
 	env: {
 		API_URL: 'http://localhost:3000',
 		NEXTAUTH_SECRET: 'project-secret',

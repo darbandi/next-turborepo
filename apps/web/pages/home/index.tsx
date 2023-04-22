@@ -1,4 +1,4 @@
-import { getServerSidePropsWithTranslation } from 'backend/lib/getServerSidePropsWithTranslation';
+import { ssrConfig } from 'backend/lib/ssrConfig';
 import dynamic from 'next/dynamic';
 
 const Home = dynamic(() => import('client/containers/home'), {
@@ -8,5 +8,5 @@ const Home = dynamic(() => import('client/containers/home'), {
 export function Index() {
 	return <Home />;
 }
-export const getServerSideProps = getServerSidePropsWithTranslation;
+export const getServerSideProps = ssrConfig;
 export default Index;
