@@ -21,10 +21,7 @@ export const authOptions: NextAuthOptions = {
 					email: string;
 					password: string;
 				};
-				const user = await User.findOne({ email }).lean();
-				if(!user.password) {
-					throw new Error('Invalid Credentials');
-				}
+				const user = await User.findOne({ email });				
 				const isPasswordMatched = await compare(password, user.password);
 				if (user && isPasswordMatched) {
 					return {
