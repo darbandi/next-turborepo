@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
 					password: string;
 				};
 				const user = await User.findOne({ email }).lean();
-				const isPasswordMatched = await compare(password, user?.password);
+				const isPasswordMatched = await compare(password, user.password);
 				if (user && isPasswordMatched) {
 					return {
 						id: user._id.toString(),
